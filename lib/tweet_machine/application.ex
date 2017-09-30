@@ -20,6 +20,11 @@ defmodule TweetMachine.Application do
     # See https://hexdocs.pm/elixir/Supervisor.html
     # for other strategies and supported options
     opts = [strategy: :one_for_one, name: TweetMachine.Supervisor]
-    Supervisor.start_link(children, opts)
+    process = Supervisor.start_link(children, opts)
+    TweetMachine.Scheduler.schedule_file(
+      "* * * * *",
+      Path.join("#{:code.priv_dir(:tweet_machine)}", "sample.txt")
+    )
+    process
   end
 end
