@@ -6,6 +6,9 @@ defmodule TweetMachine.Application do
   use Application
 
   def start(_type, _args) do
+    unless Mix.env == :prod do
+      Envy.auto_load
+    end
     # List all child processes to be supervised
     children = [
       # Starts a worker by calling: TweetMachine.Worker.start_link(arg)
