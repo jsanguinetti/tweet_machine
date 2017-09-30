@@ -6,6 +6,7 @@ defmodule TweetMachine.Application do
   use Application
 
   def start(_type, _args) do
+    import Supervisor.Spec, warn: false
     unless Mix.env == :prod do
       Envy.auto_load
     end
@@ -13,6 +14,7 @@ defmodule TweetMachine.Application do
     children = [
       # Starts a worker by calling: TweetMachine.Worker.start_link(arg)
       # {TweetMachine.Worker, arg},
+      worker(TweetMachine.TweetServer, [])
     ]
 
     # See https://hexdocs.pm/elixir/Supervisor.html
