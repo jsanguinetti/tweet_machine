@@ -2,6 +2,7 @@ defmodule FileReaderTest do
     use ExUnit.Case
     import TweetMachine.FileReader
     import Mock
+    doctest TweetMachine.FileReader
 
     test "Passing a file should return a string" do
         str = get_strings_to_tweet(

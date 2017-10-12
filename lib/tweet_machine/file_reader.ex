@@ -1,4 +1,8 @@
 defmodule TweetMachine.FileReader do
+    @doc """
+    iex> TweetMachine.FileReader.get_strings_to_tweet("priv/test/doc.txt")
+    "ABC"
+    """
     def get_strings_to_tweet(path) do
         File.read!(path)
         |> pick_string
