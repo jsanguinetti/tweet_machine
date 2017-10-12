@@ -28,7 +28,9 @@ defmodule TweetMachine.Mixfile do
       {:credo, "~> 0.8.7"},
       {:quantum, "~> 1.9.3"},
       {:envy, "~> 1.1.1"},
-      {:extwitter, "~> 0.8.6"}
+      {:extwitter, "~> 0.8.6"},
+      {:mock, "~> 0.3.1"},
+      {:mix_test_watch, "~> 0.5.0"}
     ]
   end
 end
